@@ -24,5 +24,21 @@ addBookToLibrary("The Glove", "J.R.R Tolkien", 312, false)
 console.log(myLibrary)
 
 function displayBooks(){
+    let container = document.getElementsByClassName("library")
+    if (container.length > 0){
+        container = container[0]
 
+        myLibrary.forEach(function(book){
+            let bookElement = document.createElement("div")
+            bookElement.innerHTML = `
+                <h3>${book.title}</h3>
+                <p>Author: ${book.author}</p>
+                <p>Pages: ${book.pages}</p>
+                <p>${book.read ? "Read" : "Not Read"}</p>
+            `
+            container.appendChild(bookElement)
+        }) 
+    }
 }
+
+displayBooks()
