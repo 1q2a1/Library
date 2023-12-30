@@ -21,6 +21,8 @@ function addBookToLibrary(title, author, pages, read) {
 
 addBookToLibrary("The Hobbit", "J.R.R Tolkien", 295, false)
 addBookToLibrary("The Glove", "J.R.R Tolkien", 312, false)
+addBookToLibrary("Ruby", "Roald Dahl", 317, false)
+addBookToLibrary("Running Late", "Steven Lim", 512, true)
 console.log(myLibrary)
 
 function displayBooks(){
@@ -30,6 +32,7 @@ function displayBooks(){
 
         myLibrary.forEach(function(book){
             let bookElement = document.createElement("div")
+            bookElement.className= "book"
             bookElement.innerHTML = `
                 <h3>${book.title}</h3>
                 <p>Author: ${book.author}</p>

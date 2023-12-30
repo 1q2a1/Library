@@ -1,0 +1,26 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.library {
+    padding:10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* space between cards */
+}
+
+.book {
+    flex: 0 0 150px; /* flex-grow, flex-shrink, flex-basis */
+    height: 150px; /* for square cards */
+    border: 1px solid #eceaea;
+    padding: 10px;
+    box-sizing: border-box; /* include padding and border in the width and height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
