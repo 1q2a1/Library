@@ -46,9 +46,20 @@ document.getElementById("submit-btn").addEventListener("click", function(e) {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
-    let read = document.getElementById("read").value;
+    let readOptions = document.getElementsByName("read");
+    for (let i=0; i<2; i++){
+        if (readOptions[i].checked){
+            var selectedValue = readOptions[i]
+            break
+        }
+    } 
+    let read = selectedValue.value === 'true' 
     
-    read = read === "true"
+    let form = document.getElementById("myForm")
+    if (form.checkValidity() === false){
+        form.reportValidity()
+        return
+    }
 
     const formSection = document.getElementById("form").style.display = "none"
     addBookToLibrary(title, author, pages, read)
