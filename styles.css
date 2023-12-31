@@ -4,6 +4,30 @@
     box-sizing: border-box;
 }
 
+h1 {
+    padding: 30px;
+    text-align: center; /* Center align text */
+    color: #333; /* Dark text color */
+    font-size: 2em; /* Larger font size */
+    font-weight: bold; /* Bold font weight */
+    margin: 20px 0; /* Margin at the top and bottom */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Text shadow for depth */
+    position: relative; /* Needed for pseudo-element positioning */
+}
+
+h1::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position relative to the h1 */
+    left: 10%; /* Adjust to fit the width of your h1 */
+    right: 10%; /* Adjust to fit the width of your h1 */
+    bottom: -10px; /* Position just below the h1 */
+    height: 10px; /* Height of the 3D effect */
+    background: rgba(0, 0, 0, 0.1); /* Shadow color */
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4); /* Shadow to create depth */
+    border-radius: 50%; /* Rounded effect to the shadow */
+    z-index: -1; /* Place the shadow behind the h1 */
+}
+
 .library {
     padding:10px;
     display: flex;
@@ -23,4 +47,77 @@
     align-items: center;
     text-align: center;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+#addBookButton {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* No border */
+    color: white; /* White text */
+    padding: 20px 35px; /* Padding to form a circle */
+    text-align: center; /* Center the text/icon */
+    text-decoration: none; /* No text decoration */
+    display: inline-block; /* Inline block element */
+    font-size: 20px; /* Size of the plus symbol */
+    border-radius: 50%; /* Round shape */
+    box-shadow: 0 4px #3e8e41; /* Shadow effect for 3D look */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    font-size: 50px;
+}
+
+#addBookButton:hover {
+    background-color: #3e8e41; /* Darker shade when hovered */
+}
+
+#addBookButton:active {
+    background-color: #3e8e41; /* Same darker shade when active */
+    box-shadow: 0 2px #666; /* Shadow moved up to mimic being pressed */
+    transform: translateY(2px); /* Move the button up to mimic being pressed */
+}
+
+#form{
+    display: none;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    height:100vh; 
+}
+form{
+    width: 90vw;
+    height: 40vh;
+    border: 2px solid #eceaea;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h2 {
+    margin-bottom: 20px;
+}
+input{
+    padding: 5px;
+    width: 15vw;
+}
+li{
+    list-style: none;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+#submit-btn{
+    margin-bottom: 5px;
+    background-color: #4CAF50;
+    color: white;
+}
+#close-btn{
+    background-color: #c42c2c;
+    color: white; 
+}
+#submit-btn, #close-btn{
+    width:100px;
+    padding: 5px;
 }
