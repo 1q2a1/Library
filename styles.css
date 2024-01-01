@@ -47,6 +47,7 @@ h1::after {
     align-items: center;
     text-align: center;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 
@@ -120,4 +121,16 @@ li{
 #submit-btn, #close-btn{
     width:100px;
     padding: 5px;
+}
+.delete-btn{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align:center;
+    cursor: pointer;
+    background-color: #e4c2c2;
+    color: rgb(8, 8, 8);
+    border-radius: 5px;
 }

@@ -1,4 +1,4 @@
-const myLibrary = []
+let myLibrary = []
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -22,20 +22,31 @@ function displayBooks(){
     if (container.length > 0){
         container = container[0]
         container.innerHTML = ''
-        myLibrary.forEach(function(book){
+        myLibrary.forEach(function(book, index){
             let bookElement = document.createElement("div")
             bookElement.className= "book"
+            bookElement.id = index
+
             bookElement.innerHTML = `
             <h3>${book.title}</h3>
             <p>Author: ${book.author}</p>
             <p>Pages: ${book.pages}</p>
             <p>${book.read ? "Read" : "Not Read"}</p>
+            <button class="delete-btn">x<button>
             `
+            let deleteBtn = bookElement.getElementsByClassName("delete-btn")[0]
+            console.log(deleteBtn)
+            deleteBtn.addEventListener("click", function(e){
+                let curBookIndex = bookElement.id
+                myLibrary = myLibrary.filter((book, j) => j != curBookIndex)
+                displayBooks()
+            })
             container.appendChild(bookElement)
         }) 
     }
 }
 
+// buttons
 document.getElementById("addBookButton").addEventListener("click", function() {
     const formSection = document.getElementById("form").style.display = "flex"
     const contentSection = document.getElementById("content").style.display = "none"
@@ -81,3 +92,4 @@ addBookToLibrary("Ruby", "Roald Dahl", 317, false)
 addBookToLibrary("Running Late", "Steven Lim", 512, true)
 console.log(myLibrary)
 displayBooks()
+
