@@ -31,16 +31,30 @@ function displayBooks(){
             <h3>${book.title}</h3>
             <p>Author: ${book.author}</p>
             <p>Pages: ${book.pages}</p>
-            <p>${book.read ? "Read" : "Not Read"}</p>
+            <button class="toggle-btn">${book.read ? "Read" : "Not Read"}</button>
             <button class="delete-btn">x<button>
             `
             let deleteBtn = bookElement.getElementsByClassName("delete-btn")[0]
-            console.log(deleteBtn)
+            // console.log(deleteBtn)
             deleteBtn.addEventListener("click", function(e){
                 let curBookIndex = bookElement.id
                 myLibrary = myLibrary.filter((book, j) => j != curBookIndex)
                 displayBooks()
             })
+
+            let toggleBtn = bookElement.getElementsByClassName("toggle-btn")[0]
+            toggleBtn.classList.add(book.read ? "toggle-read" : "toggle-unread")
+            toggleBtn.addEventListener("click", function(e){
+                let curBookIndex = bookElement.id
+                myLibrary.forEach((book, j) => {
+                    if (j == curBookIndex){
+                        book.read = !book.read
+                    }
+                })
+                console.log(myLibrary)
+                displayBooks()
+            })
+
             container.appendChild(bookElement)
         }) 
     }

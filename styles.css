@@ -36,8 +36,8 @@ h1::after {
 }
 
 .book {
-    flex: 0 0 150px; /* flex-grow, flex-shrink, flex-basis */
-    height: 150px; /* for square cards */
+    flex: 0 0 170px; /* flex-grow, flex-shrink, flex-basis */
+    height: 170px; /* for square cards */
     border: 1px solid #eceaea;
     padding: 10px;
     box-sizing: border-box; /* include padding and border in the width and height */
@@ -48,6 +48,7 @@ h1::after {
     text-align: center;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
     position: relative;
+    gap:2px;
 }
 
 
@@ -133,4 +134,26 @@ li{
     background-color: #e4c2c2;
     color: rgb(8, 8, 8);
     border-radius: 5px;
+}
+
+.toggle-btn{
+    margin-top:2px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    box-shadow: 2px 2px #c5c3c3;
+    width: 80px;
+}
+.toggle-unread{
+    background-color: yellow;
+}
+.toggle-unread:hover{
+    background-color: rgb(168, 168, 2);
+}
+.toggle-read{
+    background-color: aqua;
+}
+.toggle-read:hover{
+    background-color: rgb(2, 139, 139);
 }
